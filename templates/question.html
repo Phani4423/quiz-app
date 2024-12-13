@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>{{ question.question_text }}</h2>
+    <form method="post" action="/submit/">
+        {% csrf_token %}
+        <input type="hidden" name="question_id" value="{{ question.id }}">
+        <label><input type="radio" name="selected_option" value="1"> {{ question.option1 }}</label><br>
+        <label><input type="radio" name="selected_option" value="2"> {{ question.option2 }}</label><br>
+        <label><input type="radio" name="selected_option" value="3"> {{ question.option3 }}</label><br>
+        <label><input type="radio" name="selected_option" value="4"> {{ question.option4 }}</label><br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
